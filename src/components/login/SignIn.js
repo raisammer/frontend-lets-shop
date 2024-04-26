@@ -37,7 +37,7 @@ const SignIn = () => {
           email,
           password,
         }),
-        credentials: 'include',
+        // credentials: 'include',
       })
 
       const data = await res.json()
