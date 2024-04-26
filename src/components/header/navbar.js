@@ -43,7 +43,6 @@ const Navbar = () => {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-          credentials: 'include',
         }
       )
       const data = await user.json()
