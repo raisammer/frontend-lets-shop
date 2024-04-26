@@ -28,7 +28,7 @@ const SignIn = () => {
     try {
       const { email, password } = logdata
       const res = await fetch('https://backend-lets-shop.onrender.com/login', {
-        mode: 'no-cors',
+        // mode: 'no-cors',
         method: 'POST',
         headers: {
           'content-type': 'application/json',
