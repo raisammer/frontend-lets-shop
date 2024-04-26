@@ -29,19 +29,22 @@ const SignUp = () => {
     e.preventDefault()
     try {
       const { fname, email, mobile, password, cpassword } = userData
-      const res = await fetch('/register', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          fname,
-          email,
-          mobile,
-          password,
-          cpassword,
-        }),
-      })
+      const res = await fetch(
+        'https://backend-lets-shop.onrender.com/register',
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            fname,
+            email,
+            mobile,
+            password,
+            cpassword,
+          }),
+        }
+      )
 
       const data = await res.json()
       if (res.status === 201) {

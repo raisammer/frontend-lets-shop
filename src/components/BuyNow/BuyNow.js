@@ -15,14 +15,17 @@ const BuyNow = () => {
   // delete Item
   const deleteItem = async (id) => {
     try {
-      const res = await fetch(`/delete/${id}`, {
-        method: 'DELETE',
-        header: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      })
+      const res = await fetch(
+        `https://backend-lets-shop.onrender.com/delete/${id}`,
+        {
+          method: 'DELETE',
+          header: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        }
+      )
       const data = await res.json()
       if (res.status !== 201) {
         console.log('error in deleting the data ', data)

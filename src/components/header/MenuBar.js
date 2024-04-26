@@ -19,14 +19,17 @@ const MenuBar = () => {
   const navigate = useNavigate('')
   const logOut = async () => {
     try {
-      const user = await fetch('/logout', {
-        method: 'POST',
-        header: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      })
+      const user = await fetch(
+        'https://backend-lets-shop.onrender.com/logout',
+        {
+          method: 'POST',
+          header: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        }
+      )
       const data = await user.json()
       if (user.status !== 201) {
         console.log('error in logging out ')

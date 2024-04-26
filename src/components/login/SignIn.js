@@ -27,17 +27,20 @@ const SignIn = () => {
     e.preventDefault()
     try {
       const { email, password } = logdata
-      const res = await fetch('https://backend-lets-shop.onrender.com/login', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-        credentials: 'include',
-      })
+      const res = await fetch(
+        'https://backend-lets-shop.onrender.com/login',
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+          credentials: 'include',
+        }
+      )
 
       const data = await res.json()
       console.log(data)

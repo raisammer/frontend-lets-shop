@@ -19,14 +19,17 @@ const Cart = () => {
   const getData = async () => {
     try {
       console.log('comingnnn')
-      const ind_data = await fetch(`/getproductsone/${id}`, {
-        method: 'GET',
-        header: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        // credentials: 'include',
-      })
+      const ind_data = await fetch(
+        `https://backend-lets-shop.onrender.com/getproductsone/${id}`,
+        {
+          method: 'GET',
+          header: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          // credentials: 'include',
+        }
+      )
       const data = await ind_data.json()
       console.log(data)
       setProduct(data)
@@ -43,17 +46,20 @@ const Cart = () => {
 
   const addToCart = async (id) => {
     try {
-      const data = await fetch(`/addcart/${id}`, {
-        method: 'POST',
-        header: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({
-          product,
-        }),
-      })
+      const data = await fetch(
+        `https://backend-lets-shop.onrender.com/addcart/${id}`,
+        {
+          method: 'POST',
+          header: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            product,
+          }),
+        }
+      )
       const data1 = await data.json()
       if (data.status >= 400 || !data1) {
         console.log('Error in adding as invalid user')
